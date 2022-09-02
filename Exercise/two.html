@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>Press me</button>
+  <script>
+    let todo1 = "surieya";
+    let todo2 = "surieya";
+    let todo3 = "surieya";
+
+    // array
+    let todos = ["Get groceries" , "vegetables" , "Fruiits"];
+    // adding elements
+    todos.push("cereal");
+    //removing the last element
+    todos.pop();
+    //function
+  function addTodo(todotitle)
+  {
+    let element = document.createElement('div');
+    element.innerText = todotitle;
+    document.body.appendChild(element);
+  }
+
+addTodo(todo1);
+addTodo(todo2);
+addTodo(todo3);
+  </script>
+</body>
+</html>
