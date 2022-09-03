@@ -5,28 +5,37 @@
    </title>
   </head>
   <body>
-    <button>Press Me</button>
-    <div>Get Groceries</div>
-    <div>Wash car</div>
-    <div>Make dinner</div>
-    
+    <input id="todo-title" type="text" />
+    <button onclick="addTodo()">Add Todo</button>
+    <div id = "todo-list"></div>
 
     <script>
-      let todo1 = 'Get groceries';
-      let todo2 =  'Wash car';
-      let todo3 = 'Make Dinner';
+      const todos = ['Get groceries','Wash car','Make dinner'];
+      //default render
+      render();
+    
+    // on-click Render;
+    function addTodo(){
+      const textbox = document.getElementById('todo-title');
+      const title = textbox.value;
+      todos.push(title);
+      render();
+    }
 
-      let element = document.createElement('div');
-      element.innerText = todo1;
-      document.body.appendChild(element);
-
-      element = document.createElement('div');
-      element.innerText = todo2;
-      document.body.appendChild(element);
-
-      element=document.createElement('div');
-      element.innerText = todo3;
-      document.body.appendChild(element);
+     
+    function render() {
+      //reset our list
+      document.getElementById('todo-list').innerHTML = '';
+      
+      todos.forEach(function(todotitle)
+     {
+      const element = document.createElement('div');
+      element.innerText = todotitle;
+      const todoList = document.getElementById("todo-list");
+      todoList.appendChild(element);
+     });
+    }
     </script>
+
   </body>
 </html>
