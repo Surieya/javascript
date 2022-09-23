@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects</title>
+</head>
+<body>
+  <script>
+    //OBJECTS
+    const person = {
+      name: 'Leonardo',
+      shirt: 'White'
+    }
+    // DOT NOTATION
+    //console.log(person.name);
+    //console.log(person.shirt);
+
+    //BRACKET NOTATION
+    //console.log(person['name']);
+    //console.log(person['shirt']);
+
+
+    //ASSIGN OBJECT THEN ACESSING IT
+    person.phone = '8610540677';
+    //console.log(person.phone);
+    person['Age'] = "40";
+    //console.log(person['Age']);
+
+
+    //SAMPLE FUNCTION 2
+    const person2 = {
+      name: 'Quzi',
+      shirt: 'Black'
+    }
+    //console.log(person2.name);
+    //console.log(person2.shirt);
+
+
+    const introducer = (name, shirt, asset, liabilities) => {
+      const person = {
+        name: name,
+        shirt: shirt,
+        asset: asset,
+        liabilities: liabilities,
+        
+        //METHOD
+        netWorth: function ()  {
+          return this.asset - this.liabilities
+        }
+      }
+      const intro = `Hi My name is ${person.name} and the color of my shirt is ${person.shirt} . My net Worth is $${person.netWorth()} USD`
+
+      return intro;
+    }
+    console.log(introducer('Leonardo', 'White ', 100000, 50000));
+      </script>
+    </body>
+    </html>
