@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reduce</title>
+</head>
+<body>
+  <script>
+    //reduce
+    // reduce,filter,map takes in a function as an argument;
+
+    const nums = [1,2,3,4,5]
+    // const result3 = nums.reduce(function(prev,curr){
+    //   return prev + curr ;
+    // })
+
+    // const result3 = nums.reduce((prev,curr) => prev + curr);
+    // console.log(result3);
+
+      const sum = (prev,curr) => prev+curr;
+      const mul = (a,b) => a*b
+
+
+
+      const result3 = nums.reduce(sum);
+      const result4 = nums.reduce(mul);
+
+      console.log(result3);
+      console.log(result4);
+
+  </script>
+</body>
+</html>

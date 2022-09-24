@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Char_array_manupulatiion</title>
+</head>
+<body>
+  <script>
+    const howManyLetters = (phrase) => {
+    let result = 0;
+    for (letterIndex in phrase) {
+      result = Number(letterIndex) + 1;
+    }
+    // other way to do is it with .length method
+    return { result };
+  }
+  //const phrase = prompt('Write Your phrase');
+      console.log(howManyLetters("Surieya n"));
+
+
+      const letterFrequency = (phrase) =>
+       {
+      // make a 'empty-frequency-onject {}'
+      let frequency = {};
+      for (const letter of phrase) {
+        if (letter in frequency) {
+          frequency.letter += 1;
+          //frequency.letter++;
+        }
+        else {
+          frequency[letter] = 1;
+        }
+        // check if letter exists in frequency 
+        // increment the value by 1
+        // else set the value to 1
+      }
+      return frequency;
+    }
+
+    const wordFrequency = (phrase) => {
+      let frequency = {}
+      words = phrase.split(' ');
+      return letterFrequency(words);
+
+      // for (word of words) {
+      //   if (word in frequency) {
+      //     frequency.word++;
+      //   }
+      //   else {
+      //     frequency[word] = 1
+      //   }
+      // }
+
+      // return frequency;
+    }
+       console.log(letterFrequency("Surieya N"));
+       console.log(wordFrequency("Surieya N"))
+
+
+  </script>
+</body>
+</html>

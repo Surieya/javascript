@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number_array_manupulation</title>
+</head>
+<body>
+  <script>
+    const sumArray = (numbers) => {
+      let sum = 0;
+      for (let number of numbers) {
+        sum = sum + number;
+      }
+      return { sum };
+    }
+    const diffArray = (numbers) => {
+      let diff = 0;
+      for (let number of numbers) {
+        diff = number - diff;
+      }
+      return { diff }
+    }
+    const maxOfArray = (numbers) => {
+      let max = 0;
+      for (let number of numbers) {
+        if (number > max) {
+          max = number;
+        }
+      }
+      return { max }
+    }
+    const minOfArray = (numbers) => {
+      let min = numbers[0];
+      for (const number of numbers) {
+        if (number < min) {
+          min = number;
+        }
+      }
+      return { min };
+    }
+    let numberArray = [1, 2, 3, 4, 5];
+     console.log(sumArray(numberArray));
+     console.log(diffArray(numberArray));
+     console.log(maxOfArray(numberArray));
+     console.log(minOfArray(numberArray));
+
+  </script>
+</body>
+</html>

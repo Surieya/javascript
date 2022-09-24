@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filter</title>
+</head>
+<body>
+  <script>
+    //Manual filter function
+      const filter = (numbers ,greaterThan) =>{
+        let result = []
+        for(const number of numbers)
+          {
+          if(number > greaterThan){
+            result.push(number);
+          }
+        }
+        return result;
+      }
+      numbers = [1,2,3,4,5,6,7,8,9];
+      //console.log(filter( numbers ,3));
+
+      // built in filter function
+
+      
+      //console.log(numbers.filter(number => number > 3));
+      //console.log(numbers.filter(number => number > 2 && number < 8));
+
+      // array of objects 
+      const actors = [
+        {name :'pony',netWorth:1000},
+        {name:'mins',netWorth:100000},
+        {name:'gordi',netWorth:10000},
+      ]
+      let result2 = actors.filter(actor => actor.netWorth > 1000);
+      //console.log(result2);
+      let names = result2.map(actor => actor.name).join(', ')
+      //playground.innerHTML = `<h1>${names}</h1>`;
+      let result3 = actors.reduce((prev,curr) => prev + curr.netWorth,0);
+      console.log(result3);
+
+  </script>
+</body>
+</html>
