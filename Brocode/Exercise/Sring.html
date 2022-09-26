@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let userName = "Surieya N"
+    let phNo = "123-345-556" 
+    console.log(userName.length);
+    console.log(userName.charAt(0));
+    console.log(userName.indexOf('S'));
+    userName = userName.toLowerCase();
+
+    console.log(userName);
+    userName = userName.toUpperCase();
+    console.log(userName);
+
+    phNo = phNo.replaceAll("-","");
+    console.log(phNo);
+
+    lastName = userName.slice(userName.indexOf(" ")+1);
+    console.log(lastName);
+
+    // method chaining
+
+      let Letter = userName.indexOf(0).toLowerCase();
+      console.log(Letter);
+  </script>
+</body>
+</html>
