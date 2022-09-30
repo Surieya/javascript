@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects</title>
+</head>
+<body>
+  <script>
+    const car1 = {
+      //properties
+        model:"Mustang",
+        color:"Red",
+        year:2022,
+      
+      //Methods
+      drive:function(){
+        console.log(`You Drive the ${this.model}`);
+      },
+      brake:()=>{
+        console.log("You can Step on Brakes");
+      },
+    }
+
+    console.log(car1.model);
+    car1.drive();
+  </script>
+</body>
+</html>
