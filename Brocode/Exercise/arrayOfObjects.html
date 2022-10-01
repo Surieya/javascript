@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>arrayOfObjects</title>
+</head>
+<body>
+  <script>
+    class Car{
+      constructor(name,year,color){
+        this.name = name;
+        this.year = year;
+        this.color = color;
+      }
+    }
+    const car1 = new Car("BMW",2020,"Red");
+    const car2 = new Car("Benz",2019,"Blue");
+    const car3 = new Car("Audi",2021,"White");
+  
+    // 4th element is anonymus object;
+    arrOfObj = [car1,car2,car3,new Car("Porsche",2020,"Grey")];
+
+    arrOfObj.forEach(function(car){
+      console.log(car.name);
+    });
+  </script>
+</body>
+</html>

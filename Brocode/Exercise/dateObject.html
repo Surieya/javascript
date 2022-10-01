@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dateObject</title>
+</head>
+<body>
+  <script>
+    let date = new Date();
+    //let date = new Date(0)
+    //let date = new Date(2023,0,1,2,3,4,5);
+
+    date = date.toLocaleString();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let dayofmonth = date.getDate();
+    let dayofweek = date.getDay();
+    let hour = date.getHours();
+    let mins = date.getMinutes();
+
+    date.setFullYear(2024);
+    date.setMonth(11);
+    // similarly we can set our values for all methods;
+
+    console.log(date);
+  </script>
+</body>
+</html>

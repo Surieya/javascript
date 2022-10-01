@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>objectsAsArguments</title>
+</head>
+<body>
+  <script>
+    class Car{
+      constructor(model,year,color){
+        this.model = model;
+        this.year = year;
+        this.color = color;
+      }
+    }
+
+    const car1 = new Car("BMW",2020,"Blue");
+    const car2 = new Car("Benz",2019,"Grey");
+
+    const displayInfo = (car) =>{
+      console.log(car.model);
+      console.log(car.year);
+      console.log(car.color);
+    }
+
+    displayInfo(car1);
+    
+  </script>
+</body>
+</html>
