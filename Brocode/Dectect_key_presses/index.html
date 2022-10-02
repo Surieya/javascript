@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dectect_key</title>
+  <style>
+     #myDiv{
+      width:100px;
+      height:100px;
+      background-color:lightgreen;
+      position:relative;
+      border:2px solid black;
+     }
+  </style>
+</head>
+<body>
+  <div id="myDiv"></div>
+  <script>
+    let myDiv = document.getElementById("myDiv");
+    let x = 0;
+    let y = 0;
+    window.addEventListener("keydown",move);
+    function move(event){
+      switch(event.key){
+
+        case "ArrowDown":
+          y+=5;
+          myDiv.style.top = y + "px";
+          break;
+
+        case "ArrowUp":
+          y-=5;
+          myDiv.style.top = y + "px";
+          break;
+
+
+        case "ArrowRight":
+          x+=5;
+          myDiv.style.left = x + "px";
+          break;
+
+        case "ArrowLeft":
+          x-=5;
+          myDiv.style.left = x + "px";
+          break;
+
+        default:
+          console.log(event.key);
+      }
+    }
+  </script>
+</body>
+</html>
