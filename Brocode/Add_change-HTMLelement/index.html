@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add/Change</title>
+</head>
+<body>
+  <h1 id="myTitle">this is my title</h1>
+  <ul id="fruit">
+    <li>Apple</li>
+    <li>Mango</li>
+  </ul>
+  <script>
+    
+    // const name = document.createElement("h1");
+    // name.textContent = window.prompt("Enter Your Name :");
+    // document.body.append(name);
+
+    const myLst = document.querySelector("#fruit");
+    const lstItem = document.createElement("li");
+    lstItem.textContent = "orange";
+    // myLst.append(lstItem);
+    // myLst.prepend(lstItem);
+
+    myLst.insertBefore(lstItem,myLst.getElementsByTagName("li")[1]);
+
+    const title = document.getElementById("myTitle");
+    title.style.backgroundColor = "Lightpink";
+
+  </script>
+</body>
+</html>

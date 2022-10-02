@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>clock Program</title>
+</head>
+<body>
+  <label id="label1"></label>
+  <script>
+     const label1 = document.getElementById("label1");
+     const update=()=>{
+      let date = new Date();
+      label1.innerHTML = formatTime(date);
+     }
+     const formatTime = (date)=>{
+       let hours = date.getHours();
+       let minutes = date.getMinutes();
+       let seconds = date.getSeconds();
+       let amOrPm = hours>=12?"Pm":"Am";
+
+       hours = (hours%12) || 12;
+
+       const formatZeros = (time)=>{
+         time = time.toString();
+         return time.length <2 ? "0"+time :time;
+       }
+
+       hours = formatZeros(hours);
+       minutes = formatZeros(minutes);
+       seconds = formatZeros(seconds);
+
+       return `${hours}:${minutes}:${seconds}:${amOrPm}`;
+
+       
+     }
+     update();
+     setInterval(update,1000);
+  </script>
+</body>
+</html>
