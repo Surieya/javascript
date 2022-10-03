@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip_Calculator</title>
+  <style>
+    *{
+      box-sizing: border-box;
+      border:0;
+      margin:0;
+    }
+    body{
+      width:100vw;
+      height:100vh;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      background-color: #8990ec;
+    }
+    p{
+      font-size:18px;
+      font-weight: 600;
+    }
+    .container{
+      background-color: #272639;
+      padding:2em;
+      color:white;
+      border-radius:20px;
+      width:450px;
+      height:500px;
+    }
+    input{
+      display: block;
+      padding:.5em 1em;
+      font-size:18px;
+      margin: 1em 0;
+      width:100%;
+      border-radius:16px ;
+      outline:none;
+      background-color:#3f3d5e;
+      color:#ffff;
+    }
+    .bottom{
+      margin-top:10%;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <label for="billTotal">Bill Total</label>
+      <input type="text" name="billTotal" id="billTotalTextBox" placeholder="0.00Rs">
+
+      <label for="Tip">Tip</label>
+      <input type="text" name="Tip" id="tipTextBox" placeholder="0%">
+
+      <div class="bottom">
+        <div>
+          <p>People</p>
+          <button id="increaseCountBtn">+</button>
+          <span>1</span>
+          <button id="decreaseCountBtn">-</button>
+        </div>
+        <div>
+          <p>Total per Person</p>
+          <p id="totalPerPerson">Rs0.00</p>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
