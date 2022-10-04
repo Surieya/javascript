@@ -24,6 +24,13 @@
       font-size:18px;
       font-weight: 600;
     }
+    label{
+      font-weight:bold;
+    }
+    span{
+      font-weight:bold;
+      font-size:25px;
+    }
     .container{
       background-color: #272639;
       padding:2em;
@@ -48,30 +55,87 @@
       display: flex;
       justify-content: space-between;
     }
+    #totalPerPerson{
+      font-size:35px;
+      margin-top:10px;
+    }
+    .count p{
+      margin-bottom:25px;
+    }
+    .count button{
+      padding:8px 13px;
+      border-radius:50%;
+      font-size:18px;
+      color:#ffff;
+      background-color:#6963b5;
+    }
+    #noOfPerson{
+     margin:0 10px;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <form>
-      <label for="billTotal">Bill Total</label>
-      <input type="text" name="billTotal" id="billTotalTextBox" placeholder="0.00Rs">
+      <label for="billTotalTextBox">Bill Total</label>
+      <input type="text" id="billTotalTextBox" placeholder="0.00Rs" onkeyup="calculateBill()">
 
-      <label for="Tip">Tip</label>
-      <input type="text" name="Tip" id="tipTextBox" placeholder="0%">
+      <label for="tipTextBox">Tip</label>
+      <input type="text" id="tipTextBox" placeholder="0%" onkeyup="calculateBill()">
 
       <div class="bottom">
-        <div>
+        <div class="count">
           <p>People</p>
           <button id="increaseCountBtn">+</button>
-          <span>1</span>
-          <button id="decreaseCountBtn">-</button>
+          <span id="noOfPerson">1</span>
+          <button id="decreaseCountBtn" onclick="decrease()">-</button>
         </div>
         <div>
           <p>Total per Person</p>
           <p id="totalPerPerson">Rs0.00</p>
         </div>
+
+        <!-- <p id="practice">ww</p> -->
       </div>
     </form>
   </div>
+  <script>
+    const billTotalTextBox1 = document.getElementById("billTotalTextBox");
+    const tipTextBox1 = document.getElementById("tipTextBox");
+    const totalPerPerson1 = document.getElementById("totalPerPerson");
+    let noOfPerson1 = document.getElementById("noOfPerson");
+     // const increaseCountBtn = document.getElementById("increaseCountBtn");
+    // const decreaseCountBtn = document.getElementById("decreaseCountBtn");
+
+    const practice = document.getElementById('practice');
+    
+    // const bill = Number(tipTextBox.value);
+    // console.log(bill);
+    // practice.innerText= 11;
+    let numberOfPeople = Number(noOfPerson1.innerText);
+
+    function calculateBill(){
+      const bill = Number(billTotalTextBox1.value);
+      const tipPercentage = Number(tipTextBox1.value) / 100;
+      const tipAmount = bill * tipPercentage;
+      const total = bill + tipAmount;
+      const perPersonTotal = total/numberOfPeople;
+
+      totalPerPerson1.innerText = `Rs${perPersonTotal.toFixed(2)}`
+    }
+
+    document.getElementById("increaseCountBtn").onclick = () =>{
+        numberOfPeople +=1;
+        noOfPerson1.innerText = numberOfPeople;
+        calculateBill()  
+    }
+
+    // const increase = () => {
+    //   numberOfPeople +=1;
+    //   noOfPerson1.innerText = numberOfPeople;
+    //   calculateBill()
+    // }
+
+  </script>
 </body>
 </html>
