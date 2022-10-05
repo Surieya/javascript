@@ -77,7 +77,7 @@
 <body>
   <div class="container">
     <form onsubmit="return false">
-      <label for="billTotalTextBox">Bill Total</label>
+      <label>Bill Total</label>
       <input type="text" id="billTotalTextBox" placeholder="0.00Rs" onkeyup="calculateBill()">
 
       <label for="tipTextBox">Tip</label>
@@ -85,70 +85,56 @@
 
       <div class="bottom">
         <div class="count">
-          <p>People</p>
-          <div>
-            <button id="increaseCountBtn">+</button>
-          </div>
-          <!-- <span id="noOfPerson">1</span> -->
-          <p id="noOfPerson">1</p>
-          <button id="decreaseCountBtn" onclick="decrease()" type="button">-</button>
+          <p>People</p> 
+          <button id="increaseCountBtn" onclick="increasePeople()">+</button>
+          <span id="noOfPerson">1</span>
+          <button id="decreaseCountBtn" onclick="decreasePeople()">-</button>
         </div>
         <div>
-          <p>Total per Person</p>
-          <p id="totalPerPerson">Rs0.00</p>
-        </div>
+          
+          <div>
+            <p>Total per Person</p>
+            <p id="totalPerPerson">Rs0.00</p>
+          </div>
 
-        <!-- <p id="practice">ww</p> -->
-
-        <p id="pp">1</p>
-        <button id="btn" onclick="increase()">+</button>
+          <!-- <p id="practice">ww</p> -->
       </div>
     </form>
-  </div>
-  <script>
-    
-    const billTotalTextBox1 = document.getElementById("billTotalTextBox");
-    const tipTextBox1 = document.getElementById("tipTextBox");
-    const totalPerPerson1 = document.getElementById("totalPerPerson");
-    let noOfPerson1 = document.getElementById("noOfPerson");
-     // const increaseCountBtn = document.getElementById("increaseCountBtn");
-    // const decreaseCountBtn = document.getElementById("decreaseCountBtn");
+    <script>
+    const billInput = document.getElementById("billTotalTextBox");
+    const tipInput = document.getElementById("tipTextBox");
+    const numberOfPeoplePara = document.getElementById("noOfPerson");
+    const perPersonTotalPara = document.getElementById("totalPerPerson");
 
-    const practice = document.getElementById('practice');
-    
-    // const bill = Number(tipTextBox.value);
-    // console.log(bill);
-    // practice.innerText= 11;
-    let numberOfPeople = Number(noOfPerson1.innerText);
+    let numberOfPeople = Number(numberOfPeoplePara.innerText);
 
     function calculateBill(){
-      const bill = Number(billTotalTextBox1.value);
-      const tipPercentage = Number(tipTextBox1.value) / 100;
+      const bill = Number(billInput.value);
+      const tipPercentage = Number(tipInput.value)/100;
       const tipAmount = bill * tipPercentage;
-      const total = bill + tipAmount;
+      const total = tipAmount + bill;
       const perPersonTotal = total/numberOfPeople;
 
-      totalPerPerson1.innerText = `Rs${perPersonTotal.toFixed(2)}`
+      perPersonTotalPara.innerText = `Rs${perPersonTotal.toFixed(2)}`
     }
 
-    document.getElementById("increaseCountBtn").onclick = () =>{
-        numberOfPeople +=1;
-        noOfPerson1.innerText = numberOfPeople;
-        // calculateBill()  
+    const increasePeople = () => {
+      numberOfPeople += 1;
+      numberOfPeoplePara.innerText = numberOfPeople;
+      calculateBill()
     }
 
-    // const increase = () => {
-    //   numberOfPeople +=1;
-    //   noOfPerson1.innerText = numberOfPeople;
-    //   calculateBill()
-    // }
+    const decreasePeople = () => {
+      if(numberOfPeople<=1){
+        return;
+      }
+      numberOfPeople -=1;
 
-  //   let p = document.getElementById('pp');
-  //   let btn = document.getElementById('btn');
-  //   let num = Number(p.innerText);
-  //  function increase(){
-  //   num+=1;
-  //   p.innerText = num;
-  </script>
-</body>
-</html>
+      numberOfPeoplePara.innerText = numberOfPeople;
+      calculateBill();
+    }
+
+
+    </script>
+  </div>
+  </body>
