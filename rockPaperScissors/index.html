@@ -45,14 +45,20 @@
       box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     }
     span{
-      font-size:16px;
+      font-size:18px;
       font-weight:600;
+      margin:0.3em;
+    }
+    .scr{
+      color:rgb(255, 221, 0);
+      text-shadow: 1.5px 0 2px black;
     }
     .box:active{
       box-shadow: none;
       padding-left:15px;
       padding-top: 10px;
       vertical-align: top;
+      margin:0;
     }
     .versusdiv{
       display:none;
@@ -73,10 +79,9 @@
         <span>You &#128102 / &#128103 </span>
         <div id="humanchoice"></div>
       </div>
-       <div class="box">
-        <span>Score</span>
+       <div class="box" id="control">
+        <span class="scr">Score</span>
         <span id="score"></span>
-        <span>VS</span>
         <span id="status"></span>
        </div>
       <div class="box">
@@ -99,6 +104,9 @@
     let rpsButtons = document.querySelectorAll('.rpsbtn');
     let versusDiv = document.getElementById('versusdiv');
     let computerchoice = document.getElementById('computerchoice');
+    let scorespan = document.getElementById('score');
+    let statusspan = document.getElementById('status');
+    let controlsdiv = document.getElementById('control');
 
     let Scores = {"Human":0,"Computer":0};
 
@@ -107,7 +115,7 @@
       rpsButton.addEventListener("click",()=>{
         console.log(rpsButton.value);
         humanchoice.innerText = rpsButton.innerText;
-        versusDiv.style.display = "inherit";
+        versusDiv.style.display = "flex";
         computerchoicefun(rpsButton.value);
         
       })
@@ -119,15 +127,46 @@
       let pcchoice = rpsButtons[randint].value;
       computerchoice.innerText = rpsButtons[randint].innerText;
       
-      scorepredictor(pcchoice,humanchoice)
+      scorepredictor(pcchoice,hchoice)
+      console.log({hchoice})
     }
 
     const scorepredictor = (p,h) =>{
+     let hscr ;
+     let pcscr ;
      pc = p;
      hc = h;
      if(p == h){
-       
+       statusspan.innerText = "You Drew";
+       statusspan.style.color = "blue";
+        hscr = 0;
+        pcscr = 0;
      }
+     else if(hc == "rock" && pc == "scissors" || hc=="paper" && pc=="rock" || hc=="scissors" && pc=="paper"){
+        statusspan.innerText = "You Win";
+        statusspan.style.color = "green"
+        hscr = 1;
+        pcscr = 0;
+     }
+     else{
+       statusspan.innerText = "You Lose";
+       statusspan.style.color = "red";
+       hscr = -1;
+       pcscr = 1;
+     }
+     Scores.Computer+=pcscr;
+     Scores.Human+=hscr;
+
+     scorespan.innerText = `You:${Scores.Human}\u00A0\u00A0VS\u00A0\u00A0Pc:${Scores.Computer}`;
+    }
+
+    const endGame = () =>{
+      versusDiv.style.display = "none";
+      computerchoice.innerText = " ";
+      humanchoice.innerText = " ";
+      Scores.Computer = 0;
+      Scores.Human = 0;
+      scorespan.innerText = `You:${Scores.human}\u00A0\u00A0VS\u00A0\u00A0Pc:${Scores.Computer}`
     }
 
   </script>
