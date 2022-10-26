@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>superHeroApi</title>
+</head>
+<body>
+  
+  <input type="text" id="searchInput">
+  <button id="searchButton">Search</button>
+  <button id='newHeroButton'>Get Random Hero</button><br>
+  <div id="heroImage"><img src=" "></div>
+
+<script>
+    //https://superheroapi.com/api
+    //https://superheroapi.com/api/access-token/character-id
+    //3349460658707417
+    //https://www.superheroapi.com/api.php/Token/id
+    const SUPERHERO_TOKEN = '3349460658707417';
+    const BASE_URL = `https://www.superheroapi.com/api.php/${SUPERHERO_TOKEN}`
+
+    const newHeroButton = document.getElementById('newHeroButton');
+
+    const heroImageDiv = document.getElementById('heroImage');
+    const searchButton = document.getElementById('searchButton');
+    const searchInput = document.getElementById('searchInput');
+
+    const getSuperHero = (id) => {
+      // name => base_url/search/batman
+      // json.results[0].image.url
+      // id => base_url/id
+      // json.image.url
+      fetch(`${BASE_URL}/${id}`)
+        .then(response => response.json())
+        .then(json => {
+          // console.log(json)
+          heroImageDiv.innerHTML = `<img 
+          src="${json.image.url}" height=200 width=200 />`
+        })
+
+    }
+
+      newHeroButton.onclick = () => {
+        let randomNumber = Math.floor(Math.random() * 731) + 1;
+        console.log(randomNumber);
+        getSuperHero(randomNumber);
+      }
+
+      const getSearchSuperHero = (name) => {
+        fetch(`${BASE_URL}/search/${name}`)
+          .then(response => response.json())
+          .then(json => {
+            // console.log(json)
+            const hero = json.results[0];
+            // console.log(hero)
+            heroImageDiv.innerHTML = `<img src="${hero.image.url}" height=200 width=200/>`
+          })
+      }
+      searchButton.onclick = () => {
+        getSearchSuperHero(searchInput.value);
+        // console.log("Hello");
+      }
+
+
+
+
+// const img = "https://www.superherodb.com/pictures2/portraits/10/100/10476.jpg"
+// document.querySelector('body').innerHTML +=
+//   `<img src="${img}
+//  height=200 width=200"/>`
+</script>
+
+</body>
+</html>
