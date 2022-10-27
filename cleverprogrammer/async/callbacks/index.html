@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asynchronus</title>
+</head>
+<body>
+  <script>
+    const posts = [
+      {title:'post 1', body:'This is post One'},
+      {title:'post 2', body:'This is post two'}
+    ];
+
+    function getPosts(){
+      setTimeout(() => {
+        let output = ' ';
+        posts.forEach((post , index)=>{
+          output += `<li>${post.title}</li>`;
+        });
+        document.body.innerHTML = output;
+      },1000);
+    }
+    
+    // callback 
+    function createPost(post,callback){
+      setTimeout( () => {
+        posts.push(post);
+        // callback is called before the 2sec 
+        callback();
+      },2000);
+    }
+
+    getPosts();
+
+    createPost({title:'post 3', body:'This is post three'},getPosts );
+  </script>
+</body>
+</html>
