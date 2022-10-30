@@ -46,15 +46,17 @@
 
     getPosts();
 
-    // createPost({title:'post 3', body:'This is post three'})
-    //  .then(getPosts)
-    //  .catch(err => console.log(err));
+     createPost({title:'post 3', body:'This is post three'})
+     .then(getPosts)
+     .catch(err => console.log(err));
 
-     // Promise.all;
-     const promise1 = Promise.resolve('Hello World');
-     const promise2 = 10;
 
-     Promise.all([promise1,promise2]).then(values => console.log(values));
+
+     //Promise.all
+    //  const promise1 = Promise.resolve('Hello World');
+    //  const promise2 = 10;
+
+    //  Promise.all([promise1,promise2]).then(values => console.log(values));
   </script>
 </body>
 </html>
