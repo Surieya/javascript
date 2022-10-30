@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promises</title>
+  <title>Async/Await</title>
 </head>
 <body>
   <script>
-
     const posts = [
       {title:'post 1', body:'This is post One'},
       {title:'post 2', body:'This is post two'}
@@ -44,17 +43,12 @@
       
     }
 
-    getPosts();
-
-    // createPost({title:'post 3', body:'This is post three'})
-    //  .then(getPosts)
-    //  .catch(err => console.log(err));
-
-     // Promise.all;
-     const promise1 = Promise.resolve('Hello World');
-     const promise2 = 10;
-
-     Promise.all([promise1,promise2]).then(values => console.log(values));
+    //Async / Await
+    async function init(){
+      await createPost({title:'post 3', body:'This is post three'});
+      getPosts();
+    }
+    init();
   </script>
 </body>
 </html>
